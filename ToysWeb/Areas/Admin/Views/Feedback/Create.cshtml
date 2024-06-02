@@ -1,0 +1,46 @@
+﻿@model Feedback
+
+<div class="card-body p-4">
+    <form method="post" class="row">
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Create Feedback</h2>
+                <hr/>
+            </div>
+            <div class="mb-3">
+                <label>User ID</label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label>Comment</label>
+                <textarea asp-for="Comment" class="form-control"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label>Rating</label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label>Timestamp</label>
+                <input asp-for="Timestamp" class="form-control" readonly />
+                <span asp-validation-for="Timestamp" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a asp-controller="Feedback" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
